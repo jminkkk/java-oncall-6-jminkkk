@@ -8,7 +8,8 @@ import oncall.domain.Calendar;
 import oncall.domain.DayWorker;
 import oncall.domain.DaysOfTheWeek;
 import oncall.domain.EmergencySchedule;
-import oncall.util.Validator;
+import oncall.util.validator.MonthDayValidator;
+import oncall.util.validator.WorkerValidator;
 import oncall.view.InputView;
 import oncall.view.OutputView;
 
@@ -81,7 +82,7 @@ public class MainController {
         OutputView.print("비상 근무를 배정할 월과 시작 요일을 입력하세요> ");
         try {
             String monthDay = InputView.input();
-            Validator.validateMonthDays(monthDay);
+            MonthDayValidator.validateMonthDays(monthDay);
             return monthDay;
         } catch (NumberFormatException e) {
             OutputView.println();
@@ -107,7 +108,7 @@ public class MainController {
         try {
             String weekdayWorkers = inputWeekdayWorkers();
             String holidayWorkers = inputHolidayWorkers();
-            Validator.validateWorkers(weekdayWorkers, holidayWorkers);
+            WorkerValidator.validateWorkers(weekdayWorkers, holidayWorkers);
             return List.of(weekdayWorkers, holidayWorkers);
         } catch (IllegalArgumentException e) {
             OutputView.println();

@@ -12,20 +12,20 @@ public enum DaysOfTheWeek {
     SUNDAY(6, "일", true);
     private final int index;
     private final String day;
-    private final boolean isHoliday;
+    private final boolean isWeekend;
 
-    DaysOfTheWeek(int index, String day, boolean isHoliday) {
+    DaysOfTheWeek(int index, String day, boolean isWeekend) {
         this.index = index;
         this.day = day;
-        this.isHoliday = isHoliday;
+        this.isWeekend = isWeekend;
     }
 
     public int getIndex() {
         return index;
     }
 
-    public boolean isHoliday() {
-        return isHoliday;
+    public boolean isWeekend() {
+        return isWeekend;
     }
 
     @Override

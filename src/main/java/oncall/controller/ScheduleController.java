@@ -28,7 +28,7 @@ public class ScheduleController {
 
     private DayWorker assignWorker(Calendar month, DaysOfTheWeek newYoil, List<String> weekdayWorkers,
                                    List<String> holidayWorkers, int day) {
-        if (newYoil.isHoliday() || month.getHolidays().contains(day)) {
+        if (newYoil.isWeekend() || month.getHolidays().contains(day)) {
             holidayIndex = holidayIndex % holidayWorkers.size();
             return new DayWorker(true, holidayWorkers.get(holidayIndex++));
         }

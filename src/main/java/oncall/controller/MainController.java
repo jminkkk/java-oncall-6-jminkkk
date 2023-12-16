@@ -39,10 +39,8 @@ public class MainController {
             MonthDayValidator.validateMonthDays(monthDay);
             return monthDay;
         } catch (NumberFormatException e) {
-            OutputView.println();
             OutputView.println("[ERROR] 요일은 숫자만 가능합니다. 다시 입력해주세요.");
         } catch (IllegalArgumentException e) {
-            OutputView.println();
             OutputView.println("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
         }
         return inputMonthDays();
@@ -67,7 +65,6 @@ public class MainController {
             WorkerValidator.validateWorkers(weekdayWorkers, holidayWorkers);
             return List.of(weekdayWorkers, holidayWorkers);
         } catch (IllegalArgumentException e) {
-            OutputView.println();
             OutputView.println(e.getMessage());
             return inputWorkers();
         }

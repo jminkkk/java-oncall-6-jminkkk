@@ -26,7 +26,7 @@ public class EmergencySchedule {
 
             sb.append(month.getMonth()).append("월 ")
                     .append(i + 1).append("일 ")
-                    .append(yoil + " ")
+                    .append(yoil).append(" ")
                     .append(workers.get(i)).append("\n");
             firstYoilIndex++;
         }

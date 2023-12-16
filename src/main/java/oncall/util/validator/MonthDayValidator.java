@@ -3,7 +3,7 @@ package oncall.util.validator;
 import java.util.List;
 
 public class MonthDayValidator {
-    private static final String MONTH_DAY_SPLITTER = " ";
+    private static final String MONTH_DAY_SPLITTER = ",";
     private static final int MIN_MONTH = 1;
     private static final int MAX_MONTH = 12;
     public static void validateMonthDays(String monthDays) {

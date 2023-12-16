@@ -1,5 +1,6 @@
 package oncall.util;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
@@ -27,7 +28,16 @@ public class Validator {
     public static void validateWorkers(String weekdayWorkers, String holidayWorkers) {
         String[] weekdayWorkersArr = weekdayWorkers.split(",");
         String[] holidayWorkersArr = holidayWorkers.split(",");
-        if (weekdayWorkersArr.length != 5 || holidayWorkersArr.length != 2) {
+
+        validateWorkerDuplication(weekdayWorkersArr);
+        validateWorkerDuplication(holidayWorkersArr);
+    }
+    private static void validateWorkerDuplication(String[] workers) {
+        int workerCount = (int) Arrays.stream(workers)
+                .distinct()
+                .count();
+
+        if (workerCount != workers.length) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.");
         }
     }

@@ -52,9 +52,10 @@ public class Validator {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.(평일 순번, 휴일 순번 입력 개수가 다른 경우)");
         }
 
-        if (Arrays.stream(weekdayWorkersArr)
-                .anyMatch(worker -> Arrays.stream(holidayWorkersArr)
-                        .anyMatch(worker::equals))) {
+        int notContainCount = (int) Arrays.stream(weekdayWorkersArr)
+                .filter(worker -> !Arrays.asList(holidayWorkersArr).contains(worker))
+                .count();
+        if (notContainCount != 0) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 입력 값입니다. 다시 입력해 주세요.(평일 순번, 휴일 순번에 각각 1회 편성되지 않은 경우)");
         }
     }

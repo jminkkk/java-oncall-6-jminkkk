@@ -10,6 +10,6 @@ class CalendarTest {
     @ParameterizedTest
     @CsvSource({"JANUARY, 1", "MARCH, 1", "MAY, 5", "JUNE, 6", "AUGUST, 15", "OCTOBER, 3", "OCTOBER, 9", "DECEMBER, 25"})
     void holiday(Calendar calendar, int holiday) {
-        assertThat(calendar.getHolidays().contains(holiday)).isTrue();
+        assertThat(calendar.getHolidays()).contains(holiday);
     }
 }

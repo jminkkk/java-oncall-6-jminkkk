@@ -61,7 +61,9 @@ public class MainController {
     private List<String> inputWorkers() {
         try {
             String weekdayWorkers = inputWeekdayWorkers();
+            WorkerValidator.validateWorkers(weekdayWorkers);
             String holidayWorkers = inputHolidayWorkers();
+            WorkerValidator.validateWorkers(holidayWorkers);
             WorkerValidator.validateWorkers(weekdayWorkers, holidayWorkers);
             return List.of(weekdayWorkers, holidayWorkers);
         } catch (IllegalArgumentException e) {

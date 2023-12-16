@@ -5,9 +5,9 @@ import java.util.List;
 public class EmergencySchedule {
     private final Calendar month;
     private final DaysOfTheWeek firstYoil;
-    private final List<String> workers;
+    private final List<DayWorker> workers;
 
-    public EmergencySchedule(Calendar month, DaysOfTheWeek firstYoil, List<String> workers) {
+    public EmergencySchedule(Calendar month, DaysOfTheWeek firstYoil, List<DayWorker> workers) {
         this.month = month;
         this.firstYoil = firstYoil;
         this.workers = workers;

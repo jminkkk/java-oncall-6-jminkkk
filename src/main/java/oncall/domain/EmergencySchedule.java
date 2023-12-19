@@ -25,7 +25,8 @@ public class EmergencySchedule {
         for (int i = 0; i < month.getLastDay(); i++) {
             String yoil = DaysOfTheWeek.of(firstYoilIndex % 7).toString();
 
-            if (month.getHolidays().contains(i + 1)) {
+            if (month.getHolidays().contains(i + 1)
+                    && !DaysOfTheWeek.of(firstYoilIndex % 7).isWeekend())
                 yoil += HOLIDAY;
             }
 
